@@ -55,7 +55,7 @@ class MeshCam(BaseHTTPRequestHandler):
 
 if __name__ == '__main__':
     server = HTTPServer((host_name, host_port), MeshCam)
-    print(time.asctime(), "Server Starts - %s:%s" % (host_name, host_port))
+    print(f'{time.asctime()} meshcam start - {host_name}:{host_port}')
     if source is not None:
         cv2cap = cv2.VideoCapture(source)
 
@@ -68,5 +68,4 @@ if __name__ == '__main__':
         cv2cap.release()
 
     server.server_close()
-    print(time.asctime(), "Server Stops - %s:%s" % (host_name, host_port))
-
+    print(f'{time.asctime()} meshcam stop - {host_name}:{host_port}')
